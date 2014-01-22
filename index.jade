@@ -2,19 +2,23 @@ doctype html
 html(lang="en", ng-app="t9App")
 	head
 		title T9 Coding Challenge by Zev Youra
-		link(href="/stylesheets/screen.css", rel="stylesheet", type="text/css")
+		link(href="stylesheets/screen.css", rel="stylesheet", type="text/css")
 		script(src="js/angular.js")
 		script(src="js/main.js")
 	body(ng-controller="T9Controller", ng-keydown="keydown($event)", ng-keypress="keypress($event)")
 		#wrapper
 			#key-container
-				input(ng-model="input")
+				#input {{input}}
 				#keys
 					.key(ng-repeat="key in keys", ng-click="dial(key.number)")
 						.number {{key.number}}
 						.letters
 							.letter(ng-repeat="letter in key.letters") {{letter}}
 			#suggestions
+				form
+					label#show-words
+						input(type="checkbox", ng-model="onlyShowWords")
+						| Show Only Words
 				ul
-					li.suggestion(ng-repeat="suggestion in suggestions")
+					li.suggestion(ng-repeat="suggestion in suggestions", ng-class-even="'even'")
 						{{suggestion}}
