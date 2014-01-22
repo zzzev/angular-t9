@@ -1,0 +1,10 @@
+{
+  "name": "gravity-challenge",
+  "version": "0.0.1",
+  "description": "T9-esque coding challenge",
+  "scripts": {
+    "build": "jade index.jade"
+  },
+  "author": "zevyoura@gmail.com",
+  "license": "BSD-2-Clause"
+}
