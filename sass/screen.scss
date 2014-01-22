@@ -5,6 +5,96 @@
 
 @import "compass/reset";
 
+$wrapperWidth: 500px;
+$keyContainerWidth: 250px;
+$keyContainerPadding: 10px;
+$keyContainerHeight: 400px;
+$suggestionsWidth: $wrapperWidth - ($keyContainerWidth + (2 * $keyContainerPadding));
+
 body {
-	background: black;
+	font-family: sans-serif;
+	font-weight: 100;
+	#wrapper {
+		margin: 10px auto;
+		width: $wrapperWidth;
+		font-size: 0;
+		#key-container {
+			font-size: 16px;
+			background: #111;
+			width: $keyContainerWidth;
+			height: $keyContainerHeight;
+			padding: $keyContainerPadding;
+			display: inline-block;
+			border-radius: 5px;
+			@mixin defaultStyle {
+				font-size: 2em;
+				height: 2em;
+				text-align: center;
+				color: white;
+				background: hsla(0,0,100,0.25);
+				outline: none;
+				border: none;
+				padding: 0;
+				width: 100%;
+			}
+			input {
+				line-height: 2em;
+				@include defaultStyle;
+				margin: 0 auto;
+				border-radius: 2em;
+			}
+			#keys {
+				text-align: center;
+				.key {
+					@include defaultStyle;
+					$keySpacing: 5px;
+					$keySize: ($keyContainerWidth / 3) - (2 * $keySpacing);
+					width: $keySize;
+					height: $keySize;
+					margin: $keySpacing;
+					display: inline-block;
+					vertical-align: top;
+					cursor: pointer;
+					border-radius: 50%;
+					.number {
+						margin-top: 0.05 * $keySize;
+						$numHeight: 0.6 * $keySize;
+						height: $numHeight;
+						line-height: $numHeight;
+					}
+					.letters {
+						$letterHeight: 0.25 * $keySize;
+						height: $letterHeight;
+						line-height: $letterHeight;
+						.letter {
+							vertical-align: top;
+							display: inline-block;
+							font-size: 0.4em;
+						}
+					}
+				}
+			}
+		}
+		#suggestions {
+			display: inline-block;
+			width: $suggestionsWidth;
+			height: $keyContainerHeight;
+			margin: 10px 0;
+			background: hsla(0,0,0,0.8);
+			color: white;
+			vertical-align: top;
+			font-size: 16px;
+			border-radius: 0 5px 5px 0;
+			ul {
+				padding: 15px;
+				.suggestion {
+					margin: 0.5em 0;
+					height: 1em;
+					&.even {
+						background: hsla(0,0,100,0.25);
+					}
+				}
+			}
+		}
+	}
 }

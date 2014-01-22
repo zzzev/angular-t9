@@ -1,8 +1,20 @@
 doctype html
-html(lang="en")
+html(lang="en", ng-app="t9App")
 	head
-		title T9 Coding Challenge
+		title T9 Coding Challenge by Zev Youra
 		link(href="/stylesheets/screen.css", rel="stylesheet", type="text/css")
-	body
-		script(src="js/coffee-script.js")
-		script(src="cs/main.coffee", type="text/coffeescript")
+		script(src="js/angular.js")
+		script(src="js/main.js")
+	body(ng-controller="T9Controller", ng-keydown="keydown($event)", ng-keypress="keypress($event)")
+		#wrapper
+			#key-container
+				input(ng-model="input")
+				#keys
+					.key(ng-repeat="key in keys", ng-click="dial(key.number)")
+						.number {{key.number}}
+						.letters
+							.letter(ng-repeat="letter in key.letters") {{letter}}
+			#suggestions
+				ul
+					li.suggestion(ng-repeat="suggestion in suggestions")
+						{{suggestion}}
