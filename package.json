@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "T9-esque coding challenge",
   "scripts": {
-    "build": "jade index.jade"
+    "build": "jade index.jade",
+    "serve": "python -m SimpleHTTPServer",
+    "watch": "compass watch ."
   },
   "author": "zevyoura@gmail.com",
   "license": "BSD-2-Clause"
