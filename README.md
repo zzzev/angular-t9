@@ -3,7 +3,10 @@ T9 in Angular
 
 Written by Zev Youra.
 
-A basic implementation of a T9-like typing system. The word list is generated from the sample linux words file available [here](http://www.cs.duke.edu/~ola/ap/linuxwords). 
+[Demo](http://zzzev.com/angular-challenge/) 
+
+A basic implementation of a T9-like typing system. The word list is generated from the sample linux words file available [here](http://www.cs.duke.edu/~ola/ap/linuxwords).
+
 
 Ambiguities
 -----------
